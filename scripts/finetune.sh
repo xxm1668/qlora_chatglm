@@ -1,0 +1,25 @@
+python3 qlora_chatglm.py \
+    --model_name_or_path /home/xxm/model/new/chatglm-6b \
+    --output_dir ./output \
+    --dataset estate \
+    --do_train True \
+    --do_eval True \
+    --do_mmlu_eval False \
+    --source_max_len 1000 \
+    --target_max_len 512 \
+    --per_device_train_batch_size 4 \
+    --per_device_eval_batch_size 4 \
+    --gradient_accumulation_steps 4 \
+    --logging_steps 50 \
+    --max_steps 52000 \
+    --save_strategy steps \
+    --data_seed 42 \
+    --save_steps 1000 \
+    --save_total_limit 40 \
+    --evaluation_strategy steps \
+    --eval_dataset_size 1024 \
+    --max_eval_samples 1000 \
+    --eval_steps 1000 \
+    --optim paged_adamw_32bit \
+    --bits 8 \
+    --flag chatglm
